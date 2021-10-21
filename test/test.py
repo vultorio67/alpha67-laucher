@@ -1,57 +1,33 @@
-#!/usr/bin/env python3
-# This example shows how to show the progress of installation to the user.
-import minecraft_launcher_lib
-import wget, os, time
-
-print("Installing java 16.....")
-wget.download("https://download.bell-sw.com/java/16.0.2+7/bellsoft-jdk16.0.2+7-windows-amd64.msi",bar=wget.bar_adaptive)
-filename = wget.detect_filename("https://download.bell-sw.com/java/16.0.2+7/bellsoft-jdk16.0.2+7-windows-amd64.msi")
-os.system(f"msiexec /i {filename}")
-time.sleep(5)
+import sys
+from PyQt5 import QtCore, QtWidgets
 
 
-# Taken from https://stackoverflow.com/questions/3173320/text-progress-bar-in-the-console
-def printProgressBar(iteration, total, prefix='', suffix='', decimals=1, length=100, fill='█', printEnd="\r"):
-    """
-    Call in a loop to create terminal progress bar
-    @params:
-        iteration   - Required  : current iteration (Int)
-        total       - Required  : total iterations (Int)
-        prefix      - Optional  : prefix string (Str)
-        suffix      - Optional  : suffix string (Str)
-        decimals    - Optional  : positive number of decimals in percent complete (Int)
-        length      - Optional  : character length of bar (Int)
-        fill        - Optional  : bar fill character (Str)
-        printEnd    - Optional  : end character (e.g. "\r", "\r\n") (Str)
-    """
-    percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
-    filledLength = int(length * iteration // total)
-    bar = fill * filledLength + '-' * (length - filledLength)
-    print('\r%s |%s| %s%% %s' % (prefix, bar, percent, suffix), end=printEnd)
-    # Print New Line on Complete
-    if iteration == total:
-        print()
+class ClickableLabel(QtWidgets.QLabel):
+    clicked = QtCore.pyqtSignal()
+
+    def __init__(self, parent):
+        super().__init__()
+
+    def mouseReleaseEvent(self, event):
+        if event.button() == QtCore.Qt.LeftButton:
+            self.clicked.emit()
 
 
-def maximum(max_value, value):
-    max_value[0] = value
+class Main(QtWidgets.QMainWindow):
+    def __init__(self, parent):
+        super().__init__()
+        self.ui = QtWidgets.QWidget(self)
+        self.setCentralWidget(self.ui)
+        self.ui.label = ClickableLabel(self)
+        self.ui.label.clicked.connect(self.close)
+        self.ui.label.setText("Close")
+        self.ui.layout = QtWidgets.QVBoxLayout()
+        self.ui.layout.addWidget(self.ui.label)
+        self.ui.setLayout(self.ui.layout)
+        self.show()
 
 
-def main():
-    # lambda doesn't allow setting vars, so we need this little hack
-    max_value = [0]
-
-    callback = {
-        "setStatus": lambda text: print(text),
-        "setProgress": lambda value: printProgressBar(value, max_value[0]),
-        "setMax": lambda value: maximum(max_value, value)
-    }
-
-    version = minecraft_launcher_lib.utils.get_latest_version()["release"]
-    directory = minecraft_launcher_lib.utils.get_minecraft_directory()
-
-    minecraft_launcher_lib.install.install_minecraft_version(version, directory, callback=callback)
-
-
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    app = QtWidgets.QApplication(sys.argv)
+    gui = Main(app)
+    sys.exit(app.exec_())

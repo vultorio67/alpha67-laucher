@@ -222,6 +222,26 @@ class MainWindow():
             update = True
             needGetJsonAdress = False
 
+        MYDIR = "C:/Users/" + user + "\AppData\Roaming\.alpha67/minecraft"
+        CHECK_FOLDER = os.path.isdir(MYDIR)
+        # If folder doesn't exist, then create it.
+        if not CHECK_FOLDER:
+            os.makedirs(MYDIR)
+            print("created folder : ", MYDIR)
+            createDirectory("minecraft", "C:/Users/" + user + "\AppData\Roaming\.alpha67/")
+            update = True
+            needGetJsonAdress = False
+
+        MYDIR = "C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha"
+        CHECK_FOLDER = os.path.isdir(MYDIR)
+        # If folder doesn't exist, then create it.
+        if not CHECK_FOLDER:
+            os.makedirs(MYDIR)
+            print("created folder : ", MYDIR)
+            createDirectory("alpha", "C:/Users/" + user + "\AppData\Roaming\.alpha67/")
+            update = True
+            needGetJsonAdress = False
+
         if os.path.isfile("C:/Users/"+user+"\AppData\Roaming\.alpha67/install-data.json") == False:
             print("create data folder")
             print("Installing java 16.....")
@@ -254,6 +274,8 @@ class MainWindow():
         root.destroy()
 
         self.th1.stop()
+
+        ######################os.system("laucher path")
 
 
 

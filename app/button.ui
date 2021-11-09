@@ -19,7 +19,7 @@
      <x>130</x>
      <y>260</y>
      <width>151</width>
-     <height>51</height>
+     <height>61</height>
     </rect>
    </property>
    <property name="text">
@@ -32,7 +32,7 @@
      <x>130</x>
      <y>380</y>
      <width>151</width>
-     <height>51</height>
+     <height>61</height>
     </rect>
    </property>
    <property name="text">
@@ -45,7 +45,7 @@
      <x>130</x>
      <y>130</y>
      <width>151</width>
-     <height>51</height>
+     <height>61</height>
     </rect>
    </property>
    <property name="text">
@@ -61,17 +61,65 @@
      <height>471</height>
     </rect>
    </property>
+   <property name="maximumSize">
+    <size>
+     <width>411</width>
+     <height>471</height>
+    </size>
+   </property>
    <property name="text">
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>../../../../../Downloads/bsl-shader-hero.jpg</pixmap>
+    <pixmap>../img/login Button.jpg</pixmap>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>150</y>
+     <width>16</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_2">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>280</y>
+     <width>16</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_3">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>400</y>
+     <width>16</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
   <zorder>label</zorder>
   <zorder>microsoft</zorder>
   <zorder>crack</zorder>
   <zorder>mojang</zorder>
+  <zorder>checkBox</zorder>
+  <zorder>checkBox_2</zorder>
+  <zorder>checkBox_3</zorder>
  </widget>
  <resources/>
  <connections/>

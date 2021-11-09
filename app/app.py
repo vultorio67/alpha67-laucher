@@ -17,6 +17,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
 import sys
+import encrypte
 
 from PyQt5.QtCore import QDir, Qt, QUrl, QPropertyAnimation
 from PyQt5.QtMultimedia import QMediaContent, QMediaPlayer
@@ -47,6 +48,7 @@ from qt_material import apply_stylesheet
 
 import minecraft_launcher_lib
 from button import Ui_Form
+from MojangLogin import Ui_Form as ml
 
 os.environ['QT_API'] = 'pyqt5'
 
@@ -83,6 +85,7 @@ class MainWindow(QMainWindow):
 
         self.ui.openFolder.clicked.connect(self.openFolder)
         self.ui.accounte.clicked.connect(self.Window2)
+
 
         self.ui.comboBox_2.addItem("Alpha67-server")
 
@@ -134,9 +137,9 @@ class MainWindow(QMainWindow):
         th2.start()
         print("sa")
 
-
     def smart(self):
         print("ok")
+        time.sleep(15)
 
     def updateApp(self):
         print("100")
@@ -159,24 +162,86 @@ class MainWindow(QMainWindow):
 
     def Window2(self):
         self.Form = QtWidgets.QWidget()
-        self.ui = Ui_Form()
-        self.ui.setupUi(self.Form)
+        self.uiw = Ui_Form()
+        self.uiw.setupUi(self.Form)
         self.Form.show()
+        self.uiw.mojang.clicked.connect(self.mojangThread)
+
+
+    def mojangThread(self):
+        self.Form.close()
+        th3 = threading.Thread(target=self.Mojang())
+        th3.start()
+
+    def Mojang(self):
+        self.mla = QtWidgets.QWidget()
+        self.uia = ml()
+        self.uia.setupUi(self.mla)
+        self.mla.show()
+        def upass():
+            user = os.getlogin()
+            userName = self.uia.lineEdit.text()
+            password = self.uia.lineEdit_2.text()
+
+            userName = str(userName)
+            password = str(password)
+
+            login_data = minecraft_launcher_lib.account.login_user(userName, password)
+
+            userName = userName.replace("'", "")
+            password = password.replace("'", "")
+
+            userName = userName.replace("b", "")
+            password = password.replace("b", "")
 
 
 
-class AnotherWindow(QWidget):
-    """
-    This "window" is a QWidget. If it has no parent, it
-    will appear as a free-floating window as we want.
-    """
-    def __init__(self):
-        super().__init__()
-        layout = QVBoxLayout()
-        self.label = QLabel("Another Window")
-        layout.addWidget(self.label)
-        self.setLayout(layout)
-        self.resize(487, 600)
+            try:
+                print(login_data['error'])
+                self.uia.info.setText("mot de pass ou identifiant invalide !")
+
+            except:
+                print("True login")
+                self.uia.info.setText("Identification reussi =)")
+                passwordEnc = str(user+"67")
+                userName = encrypte.password_encrypt(userName.encode(), passwordEnc)
+                password = encrypte.password_encrypt(password.encode(), passwordEnc)
+
+                def crack():
+                    try:
+                        with open('C:/Users/'+user+'\AppData\Roaming\.alpha67/alpha/cred.json', 'r') as file:
+                            uInfo = json.load(file)
+                            #uInfo = literal_eval(uInfo)
+
+                            uInfo = uInfo['crack']
+                            uInfo = uInfo[0]
+                            print(uInfo)
+                            uInfo = uInfo['username']
+                            print(uInfo)
+                            return uInfo
+                    except:
+                        return None
+
+
+
+                x = {
+
+                    "mojang": [
+                        {"username": str(userName), "password": str(password)}
+                    ],
+                    "crack": [
+                        {"username": crack()}
+                    ]
+                }
+
+                with open('C:/Users/'+user+'\AppData\Roaming\.alpha67/alpha/cred.json', 'w') as outfile:
+                    json.dump(x, outfile)
+                self.mla.close()
+        self.uia.pushButton.clicked.connect(upass)
+
+
+
+
 
 
 

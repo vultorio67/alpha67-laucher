@@ -1,134 +1,96 @@
 import json
-import urllib.request
 import time
-import os
-import shutil
-from colorama import Fore, Back, Style
-from datetime import date, datetime
-from ast import literal_eval
-import tkinter
-from tkinter import filedialog
-from win10toast_click import ToastNotifier
-import glob
+#from win10toast_click import ToastNotifier
 import threading
 import psutil
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtGui
 #from PyQt5.uic.properties import QtCore, QtGui
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow
 import sys
 import encrypte
 
-from PyQt5.QtCore import QDir, Qt, QUrl, QPropertyAnimation
-from PyQt5.QtMultimedia import QMediaContent, QMediaPlayer
-from PyQt5.QtMultimediaWidgets import QVideoWidget
-from PyQt5.QtWidgets import (QMainWindow, QWidget, QPushButton, QApplication,
-                             QLabel, QFileDialog, QStyle, QVBoxLayout)
+from PyQt5.QtCore import QPropertyAnimation
 
 # GUI FILE
-from appQtDesigner import Ui_MainWindow
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
-from PyQt5.QtCore import pyqtSlot
-from PyQt5.QtCore import QDir, Qt, QUrl
+from AppGraphic.appQtDesigner import Ui_MainWindow
+from PyQt5.QtCore import QUrl
 from PyQt5.QtMultimedia import QMediaContent, QMediaPlayer
 from PyQt5.QtMultimediaWidgets import QVideoWidget
-from PyQt5.QtWidgets import (QMainWindow, QWidget, QPushButton, QApplication,
-                             QLabel, QFileDialog, QStyle, QVBoxLayout)
+from PyQt5.QtWidgets import (QMainWindow)
 
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
-import subprocess
-
-import qdarkstyle
 import os
 
 from qt_material import apply_stylesheet
 
 import minecraft_launcher_lib
-from button import Ui_Form
-from MojangLogin import Ui_Form as ml
+
+#from the laucher
+from AppGraphic.button import Ui_Form
+from AppGraphic.MojangLogin import Ui_Form as ml
+import AppComponement.Mojang as Mojang
+import AppComponement.Crack as cracki
+import AppComponement.play  as play
+#import AppComponement.checkBox as checkBox
 
 os.environ['QT_API'] = 'pyqt5'
+CLIENT_ID = "f2107422-b90b-46cf-9d04-3dd3da989b44"
+SECRET = "I1G7Q~5IgcJGmIvT-jCzseZTZ2u6d8rJOf0cw"
+REDIRECT_URL = "https://github.com/vultorio67/alpha67-downloader"
 
 
 class MainWindow(QMainWindow):
-
-    @pyqtSlot()
-    def on_click(self):
-        print('PyQt5 button click')
-
     def __init__(self):
 
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.saidbis = None
-
-
-        #self.setWindowTitle("")
-
         # setting window icon
         self.setWindowIcon(QIcon("../img/bg1.png"))
-
         # setting icon text
         self.setWindowIconText("logo")
-
         self.mediaPlayer = QMediaPlayer(None, QMediaPlayer.VideoSurface)
         videoWidget = QVideoWidget()
         self.ui.setupUi(self)
-
+        self.ui.download.hide()
+        self.ui.play.setProperty('class', 'warning')
         self.ui.comboBox_3.addItem("Valilla")
         self.ui.comboBox_3.addItem("Forge")
-
         self.w = None
-
         self.ui.openFolder.clicked.connect(self.openFolder)
         self.ui.accounte.clicked.connect(self.Window2)
-
-
+        self.ui.play.clicked.connect(self.play)
+        #self.ui.play.clicked.connect(self.)
         self.ui.comboBox_2.addItem("Alpha67-server")
-
         self.minecraft_directory = minecraft_launcher_lib.utils.get_minecraft_directory()
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("../img/connect logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.ui.accounte.setIcon(icon)
+        self.ui.accounte.setIconSize(QtCore.QSize(121, 101))
+
+        def sta():
+            self.Window2()
+
+        self.ui.label.setPixmap(QtGui.QPixmap("../img/Alpha67 Laucher.png"))
+        self.hello()
+        self.mediaPlayer.setVideoOutput(videoWidget)
+
+
         for i in minecraft_launcher_lib.utils.get_available_versions(self.minecraft_directory):
             # Only add release versions
             if i["type"] == "release":
                 self.ui.comboBox_2.addItem(i["id"])
                 #self.version_select.addItem(i["id"])
 
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../img/connect logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.ui.accounte.setIcon(icon)
-        self.ui.accounte.setIconSize(QtCore.QSize(121, 101))
-
-        self.ui.accounte.setStyleSheet("QPushButton::hover"
-                                           "{"
-                                           "background-color : Bisque;"
-                                           "}"
-                                           )
-
-
-
-        self.ui.label.setPixmap(QtGui.QPixmap("../img/Alpha67 Laucher.png"))
-        self.mediaPlayer.setMedia(
-            QMediaContent(QUrl.fromLocalFile('Alpha67.avi')))
-        self.hello()
-
-#        self.ui.pushButton.clicked.connect(self.play)
-        self.mediaPlayer.setVideoOutput(videoWidget)
         self.show()
 
     def openFolder(self):
         print("open alpha folder")
-        # subprocess.Popen('explorer "C:/Users\evanm\.VirtualBox"')
-        #subprocess.call('start C:/Users\%username%\AppData\Roaming\.alpha67\minecraft')
         os.system('cmd /c "start C:/Users\%username%\AppData\Roaming\.alpha67\minecraft"')
 
-    def play(self):
-        if self.mediaPlayer.state() == QMediaPlayer.PlayingState:
-            self.mediaPlayer.pause()
-        else:
-            self.mediaPlayer.play()
 
     def hello(self):
         th1 = threading.Thread(target=self.smart)
@@ -160,89 +122,284 @@ class MainWindow(QMainWindow):
         self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuad)
         self.animation.start()
 
+
+#start thread
+###########################################################
+    def mojangThread(self):
+        self.Form.close()
+        th3 = threading.Thread(target=self.Mojang)
+        th3.start()
+
+    def microsoftThread(self):
+        self.Form.close()
+        th4 = threading.Thread(target=self.microsoft)
+        th4.start()
+
+    def crackThread(self):
+        self.Form.close()
+        th4 = threading.Thread(target=self.Crack)
+        th4.start()
+
+    def checkBoxThread(self):
+        th5 = threading.Thread(target=self.checkBox)
+        th5.start()
+
+    def playThread(self):
+        th6 = threading.Thread(target=self.play)
+        th6.start()
+
+    def minecraftThread(self):
+        th7 = threading.Thread(target=self.minecraft)
+        th7.start()
+
+
+#thread fonction
+###########################################################
+    def Mojang(self):
+        self.Form.close()
+        Mojang.__init__()
+
+    def Crack(self):
+        self.Form.close()
+        cracki.__init__()
+
+    def microsoft(self):
+        self.Form.close()
+        os.startfile("microsoftLogin.exe")
+
+    def minecraft(self):
+        motor = self.ui.comboBox_3.currentText()
+        version = self.ui.comboBox_2.currentText()
+
+        def maximum(max_value, value):
+            max_value[0] = value
+
+        if version == "Alpha67-server":
+            print('start alpha laucher to connect to the server')
+
+        else:
+            user = os.getlogin()
+            def maximum(max_value, value):
+                max_value[0] = value
+
+            print('start minecraft')
+            max_value = [0]
+
+            def updateBar(value, maxValue):
+                percent = 100 * int(value) / int(maxValue[0])
+                print(int(percent))
+                self.ui.download.setValue(percent)
+
+            callback = {
+                "setStatus": lambda text: print(text),
+                "setProgress": lambda value: updateBar(value, max_value),
+                "setMax": lambda value: maximum(max_value, value)
+            }
+
+            directory = minecraft_launcher_lib.utils.get_minecraft_directory()
+
+            self.ui.download.show()
+            self.ui.play.hide()
+            minecraft_launcher_lib.install.install_minecraft_version(version, directory, callback=callback)
+            self.ui.play.show()
+            self.ui.download.hide()
+
+            login = self.getSelectVersion()
+            print(login)
+
+            if login == "mojang":
+                print("okok")
+                with open('C:/Users/' + user + '\AppData\Roaming\.alpha67/alpha/cred.json', 'r') as file:
+                    uInfo = json.load(file)
+                    print(uInfo)
+                    # uInfo = literal_eval(uInfo)
+
+                    uInfo = uInfo['mojang']
+                    uInfo = uInfo[0]
+                    username = uInfo['username']
+                    password = uInfo['password']
+
+                passwordEnc = str(user + "67")
+                print(password)
+                pa = encrypte.password_decrypt(password, passwordEnc).decode()
+                print(pa)
+
+
+    def play(self):
+
+        user = os.getlogin()
+
+        def showDialog():
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Warning)
+            msgBox.setText("Vous devez vous connecter afin de lancer le jeu !!")
+            msgBox.setWindowTitle("Attention")
+            msgBox.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+
+            returnValue = msgBox.exec()
+            if returnValue == QMessageBox.Ok:
+                self.Window2()
+
+
+        def checkLogin():
+
+            try:
+                with open("C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha/select.json", "r") as jsonFile:
+                    data = json.load(jsonFile)
+                    crack = data["crack"][0]["connect"]
+                    microsoft = data["microsoft"][0]["connect"]
+                    mojang = data["mojang"][0]["connect"]
+
+                if crack == "True":
+                    return True
+                elif microsoft == "True":
+                    return True
+                elif mojang == "True":
+                    return True
+                else:
+                    print("please connects")
+                    showDialog()
+                    return False
+
+            except:
+                print("please connect")
+                showDialog()
+
+        if checkLogin() == True:
+            self.minecraftThread()
+
+
+    def getSelectVersion(self):
+        user = os.getlogin()
+        try:
+            with open("C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha/select.json", "r") as jsonFile:
+                data = json.load(jsonFile)
+                crack = data["crack"][0]["select"]
+                microsoft = data["microsoft"][0]["select"]
+                mojang = data["mojang"][0]["select"]
+
+            if crack == "True":
+                return "crack"
+            elif microsoft == "True":
+                return "microsoft"
+            elif mojang == "True":
+                return "mojang"
+            else:
+                print("please connects")
+
+        except:
+            print("please connect")
+
+
+
+
+
+
+
+
+
     def Window2(self):
+        user = os.getlogin()
         self.Form = QtWidgets.QWidget()
         self.uiw = Ui_Form()
         self.uiw.setupUi(self.Form)
         self.Form.show()
-        self.uiw.mojang.clicked.connect(self.mojangThread)
 
+        x = {
 
-    def mojangThread(self):
-        self.Form.close()
-        th3 = threading.Thread(target=self.Mojang())
-        th3.start()
+                "mojang": [
+                    {"connect": "False", "select": "False"}
+                ],
+                "microsoft": [
+                    {"connect": "False", "select": "False"}
+                ],
+                "crack": [
+                    {"connect": "False", "select": "False"}
+                ]
+            }
 
-    def Mojang(self):
-        self.mla = QtWidgets.QWidget()
-        self.uia = ml()
-        self.uia.setupUi(self.mla)
-        self.mla.show()
-        def upass():
-            user = os.getlogin()
-            userName = self.uia.lineEdit.text()
-            password = self.uia.lineEdit_2.text()
+        if os.path.isfile("C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha/select.json") == True:
+            with open("C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha/select.json", "r") as jsonFile:
+                data = json.load(jsonFile)
+            if data["mojang"][0]["select"] == "True":
+                self.uiw.checkBox.setChecked(True)
+            if data["microsoft"][0]["select"] == "True":
+                self.uiw.checkBox_2.setChecked(True)
+            if data["crack"][0]["select"] == "True":
+                self.uiw.checkBox_3.setChecked(True)
 
-            userName = str(userName)
-            password = str(password)
+        else:
+            with open("C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha/select.json", "w") as jsonFile:
+                json.dump(x,jsonFile)
 
-            login_data = minecraft_launcher_lib.account.login_user(userName, password)
+        def checkBox():
+            if self.uiw.checkBox.isChecked() == True:
+                self.uiw.checkBox_3.setChecked(False)
+                self.uiw.checkBox_2.setChecked(False)
+                with open("C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha/select.json", "r") as jsonFile:
+                    data = json.load(jsonFile)
+                    print(type(data))
+                    print(data["mojang"][0]["connect"])
+                if data["mojang"][0]["connect"] == "False":
+                    self.Mojang()
 
-            userName = userName.replace("'", "")
-            password = password.replace("'", "")
+                with open("C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha/select.json", "r") as jsonFile:
+                    data = json.load(jsonFile)
+                    print(data)
 
-            userName = userName.replace("b", "")
-            password = password.replace("b", "")
+                data["mojang"][0]["select"] = "True"
+                data["microsoft"][0]["select"] = "False"
+                data["crack"][0]["select"] = "False"
+                print(data)
+                with open("C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha/select.json", "w") as jsonFile:
+                    json.dump(data, jsonFile)
 
+        def checkBox3():
+            if self.uiw.checkBox_3.isChecked() == True:
+                self.uiw.checkBox.setChecked(False)
+                self.uiw.checkBox_2.setChecked(False)
+                with open("C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha/select.json", "r") as jsonFile:
+                    data = json.load(jsonFile)
+                    print(type(data))
+                    print(data["crack"][0]["connect"])
+                if data["crack"][0]["connect"] == "False":
+                    self.Crack()
+                with open("C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha/select.json", "r") as jsonFile:
+                    data = json.load(jsonFile)
+                    print(data)
 
+                data["mojang"][0]["select"] = "False"
+                data["microsoft"][0]["select"] = "False"
+                data["crack"][0]["select"] = "True"
+                print(data)
+                with open("C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha/select.json", "w") as jsonFile:
+                    json.dump(data, jsonFile)
+        def checkBox2():
+            if self.uiw.checkBox_2.isChecked() == True:
+                self.uiw.checkBox.setChecked(False)
+                self.uiw.checkBox_3.setChecked(False)
+                with open("C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha/select.json", "r") as jsonFile:
+                    data = json.load(jsonFile)
+                    print(type(data))
+                    print(data["microsoft"][0]["connect"])
+                if data["microsoft"][0]["connect"] == "False":
+                    self.microsoft()
+                with open("C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha/select.json", "r") as jsonFile:
+                    data = json.load(jsonFile)
+                    print(data)
 
-            try:
-                print(login_data['error'])
-                self.uia.info.setText("mot de pass ou identifiant invalide !")
-
-            except:
-                print("True login")
-                self.uia.info.setText("Identification reussi =)")
-                passwordEnc = str(user+"67")
-                userName = encrypte.password_encrypt(userName.encode(), passwordEnc)
-                password = encrypte.password_encrypt(password.encode(), passwordEnc)
-
-                def crack():
-                    try:
-                        with open('C:/Users/'+user+'\AppData\Roaming\.alpha67/alpha/cred.json', 'r') as file:
-                            uInfo = json.load(file)
-                            #uInfo = literal_eval(uInfo)
-
-                            uInfo = uInfo['crack']
-                            uInfo = uInfo[0]
-                            print(uInfo)
-                            uInfo = uInfo['username']
-                            print(uInfo)
-                            return uInfo
-                    except:
-                        return None
-
-
-
-                x = {
-
-                    "mojang": [
-                        {"username": str(userName), "password": str(password)}
-                    ],
-                    "crack": [
-                        {"username": crack()}
-                    ]
-                }
-
-                with open('C:/Users/'+user+'\AppData\Roaming\.alpha67/alpha/cred.json', 'w') as outfile:
-                    json.dump(x, outfile)
-                self.mla.close()
-        self.uia.pushButton.clicked.connect(upass)
-
-
-
-
-
+                data["mojang"][0]["select"] = "False"
+                data["microsoft"][0]["select"] = "True"
+                data["crack"][0]["select"] = "False"
+                print(data)
+                with open("C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha/select.json", "w") as jsonFile:
+                    json.dump(data, jsonFile)
+        self.uiw.mojang.clicked.connect(self.Mojang)
+        self.uiw.microsoft.clicked.connect(self.microsoft)
+        self.uiw.crack.clicked.connect(self.Crack)
+        self.uiw.checkBox.stateChanged.connect(checkBox)
+        self.uiw.checkBox_2.stateChanged.connect(checkBox2)
+        self.uiw.checkBox_3.stateChanged.connect(checkBox3)
 
 
 
@@ -254,6 +411,20 @@ class MainWindow(QMainWindow):
 
 
 if __name__ == "__main__":
+    extra = {
+
+        # Button colors
+        'danger': '#dc3545',
+        'warning': '#ffc107',
+        'success': '#17a2b8',
+
+        # Font
+        'font-family': 'Roboto',
+    }
+
     app = QApplication(sys.argv)
+    #apply_stylesheet(app, theme='dark_teal.xml', invert_secondary=True, extra=extra)
+
+    stylesheet = app.styleSheet()
     window = MainWindow()
     sys.exit(app.exec_())

@@ -1,0 +1,14 @@
+QPushButton
+{
+height: 64px;\n
+background-color: rgb(87, 146, 255);
+color: rgb(85, 255, 255);\n
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(85, 255, 255);
+border-color: rgb(143, 143, 143);
+}
+
+QPushButton::hover
+{
+background-color : Bisque;
+}

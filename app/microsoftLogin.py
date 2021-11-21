@@ -19,25 +19,27 @@ class LoginWindow(QWebEngineView):
 
         self.refresh_token_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), "refresh_token.json")
 
-        print("pppppppppppppppppppppppppppppppppppppp")
-        print(self.refresh_token_file)
-
         # Login with refresh token, if it exists
-        if os.path.isfile(self.refresh_token_file):
-            with open(self.refresh_token_file, "r", encoding="utf-8") as f:
+        user = os.getlogin()
+        """ if os.path.isfile("C:/Users/"+user+"\AppData\Roaming\.alpha67/alpha/microcred.json"):
+            with open("C:/Users/"+user+"\AppData\Roaming\.alpha67/alpha/microcred.json", "r", encoding="utf-8") as f:
                 refresh_token = json.load(f)
                 # Do the login with refresh token
                 try:
                     account_informaton = minecraft_launcher_lib.microsoft_account.complete_refresh(CLIENT_ID, SECRET,
                                                                                                    REDIRECT_URL,
                                                                                                    refresh_token)
+                    print(account_informaton)
+                    with open("C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha/ACI.json", "w",
+                              encoding="utf-8") as f:
+                        json.dump(account_informaton, f)
                     self.show_account_information(account_informaton)
+
                     return
                 # Show the window if the refresh token is invalid
                 except minecraft_launcher_lib.exceptions.InvalidRefreshToken:
-                    pass
+                    pass"""
 
-        # Open the login url
         print("ok2")
         print(minecraft_launcher_lib.microsoft_account.get_login_url(CLIENT_ID, REDIRECT_URL))
         self.load(QUrl(minecraft_launcher_lib.microsoft_account.get_login_url(CLIENT_ID, REDIRECT_URL)))
@@ -72,18 +74,47 @@ class LoginWindow(QWebEngineView):
             self.show_account_information(account_informaton)
 
     def show_account_information(self, information_dict):
+
+
+        print(f'Username: {information_dict["name"]}<br>')
+        print(f'Username: {information_dict["id"]}<br>')
+        print(f'Username: {information_dict["access_token"]}<br>')
+
+        username = information_dict["name"]
+        id = information_dict["id"]
+        access_token = information_dict["access_token"]
+
+        # Save the refresh token in a file
+        user = os.getlogin()
+        with open("C:/Users/"+user+"\AppData\Roaming\.alpha67/alpha/microcred.json", "w", encoding="utf-8") as f:
+            json.dump(information_dict["refresh_token"], f, ensure_ascii=False, indent=4)
+
+        with open("C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha/ACI.json", "w",
+                  encoding="utf-8") as f:
+            json.dump(information_dict, f)
+
+        with open("C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha/select.json", "r") as jsonFile:
+            data = json.load(jsonFile)
+            print(data)
+
+        data["microsoft"][0]["connect"] = "True"
+        data["microsoft"][0]["select"] = "True"
+        data["mojang"][0]["select"] = "False"
+        data["crack"][0]["select"] = "False"
+        print(data)
+
+        with open("C:/Users/" + user + "\AppData\Roaming\.alpha67/alpha/select.json", "w") as jsonFile:
+            json.dump(data, jsonFile)
+
         information_string = f'Username: {information_dict["name"]}<br>'
         information_string += f'UUID: {information_dict["id"]}<br>'
         information_string += f'Token: {information_dict["access_token"]}<br>'
-
-        # Save the refresh token in a file
-        with open("thebest.json", "w", encoding="utf-8") as f:
-            json.dump(information_dict["refresh_token"], f, ensure_ascii=False, indent=4)
 
         message_box = QMessageBox()
         message_box.setWindowTitle("Account information")
         message_box.setText(information_string)
         message_box.setStandardButtons(QMessageBox.StandardButton.Ok)
+        self.close()
         message_box.exec()
 
         # Exit the program

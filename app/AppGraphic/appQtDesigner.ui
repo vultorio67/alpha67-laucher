@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1459</width>
-    <height>856</height>
+    <height>847</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -61,17 +61,24 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../../../../Downloads/Alpha67 Laucher.png</pixmap>
+     <pixmap>../../img/Alpha67 Laucher.png</pixmap>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBox_2">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>420</x>
       <y>750</y>
-      <width>181</width>
+      <width>241</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(124, 141, 130);
+color: rgb(85, 255, 255);
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(85, 255, 255);
+font: 81 12pt &quot;Rockwell Extra Bold&quot;;</string>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBox_3">
@@ -83,6 +90,13 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(124, 141, 130);
+color: rgb(85, 255, 255);
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(85, 255, 255);
+font: 81 12pt &quot;Rockwell Extra Bold&quot;;</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="accounte">
     <property name="geometry">
@@ -93,6 +107,13 @@
       <height>101</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(124, 141, 130);
+color: rgb(85, 255, 255);
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(85, 255, 255);
+font: 81 12pt &quot;Rockwell Extra Bold&quot;;</string>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -102,12 +123,20 @@
      <rect>
       <x>770</x>
       <y>750</y>
-      <width>181</width>
+      <width>241</width>
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(124, 141, 130);
+color: rgb(85, 255, 255);
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(85, 255, 255);
+font: 100 9pt &quot;Rockwell Extra Bold&quot;;
+border-color: rgb(143, 143, 143);</string>
+    </property>
     <property name="text">
-     <string>ouvrir le dossier minecraft</string>
+     <string>ouvrir dossier minecraft</string>
     </property>
    </widget>
    <widget class="QPushButton" name="play">
@@ -118,6 +147,30 @@
       <width>181</width>
       <height>81</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+color: rgb(255, 255, 76);
+background-color: rgb(0, 176, 85);
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(85, 255, 255);
+border-color: rgb(143, 143, 143);
+font: 100 25pt &quot;Rockwell Extra Bold&quot;;
+
+}
+
+QPushButton::hover
+{
+color: rgb(255, 230, 76);
+background-color: rgb(50, 200, 85);
+font: 100 28pt &quot;Rockwell Extra Bold&quot;;
+}
+QPushButton::pressed 
+{
+background-color: rgb(50, 200, 85);
+font: 100 20pt &quot;Rockwell Extra Bold&quot;;
+}</string>
     </property>
     <property name="text">
      <string>Play</string>
@@ -143,8 +196,45 @@
      </rect>
     </property>
    </widget>
+   <widget class="QProgressBar" name="download">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>700</y>
+      <width>1181</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="font">
+     <font>
+      <family>Rockwell Extra Bold</family>
+      <pointsize>12</pointsize>
+      <weight>10</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(124, 141, 130);
+color: rgb(85, 255, 255);
+selection-color: rgb(255, 255, 255);
+selection-background-color: rgb(85, 255, 255);
+font: 81 12pt &quot;Rockwell Extra Bold&quot;;</string>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="textDirection">
+     <enum>QProgressBar::BottomToTop</enum>
+    </property>
+   </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

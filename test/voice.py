@@ -1,24 +1,38 @@
-import secrets
-from base64 import urlsafe_b64encode as b64e, urlsafe_b64decode as b64d
-
-from cryptography.fernet import Fernet
-from cryptography.hazmat.backends import default_backend
-from cryptography.hazmat.primitives import hashes
-from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-
-from minecraft_launcher_lib import *
-import minecraft_launcher_lib
-import os
 import json
-from ast import literal_eval
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox
+from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import pyqtSlot
 
-user = os.getlogin()
 
-if minecraft_launcher_lib.microsoft_account.url_contains_auth_code(url.toString()):
-    # Get the code from the url
-    auth_code = minecraft_launcher_lib.microsoft_account.get_auth_code_from_url(url.toString())
-    # Do the login
-    account_informaton = minecraft_launcher_lib.microsoft_account.complete_login(CLIENT_ID, SECRET, REDIRECT_URL,
-                                                                                 auth_code)
-    # Show the login information
-    show_account_information(account_informaton)
+def window():
+    app = QApplication(sys.argv)
+    win = QWidget()
+    button1 = QPushButton(win)
+    button1.setText("Show dialog!")
+    button1.move(50, 50)
+    button1.clicked.connect(showDialog)
+    win.setWindowTitle("Click button")
+    win.show()
+    sys.exit(app.exec_())
+
+
+def showDialog():
+    msgBox = QMessageBox()
+    msgBox.setIcon(QMessageBox.Information)
+    msgBox.setText("Message box pop up window")
+    msgBox.setWindowTitle("QMessageBox Example")
+    msgBox.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+    msgBox.buttonClicked.connect(msgButtonClick)
+
+    returnValue = msgBox.exec()
+    if returnValue == QMessageBox.Ok:
+        print('OK clicked')
+
+
+def msgButtonClick(i):
+    print("Button clicked is:", i.text())
+
+
+if __name__ == '__main__':
+    window()

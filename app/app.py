@@ -23,6 +23,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
 import os
+import uuid
 import subprocess
 
 from qt_material import apply_stylesheet
@@ -58,7 +59,7 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.ui.download.hide()
         self.ui.play.setProperty('class', 'warning')
-        self.ui.comboBox_3.addItem("Valilla")
+        self.ui.comboBox_3.addItem("vanilla")
         self.ui.comboBox_3.addItem("Forge")
         self.w = None
         self.ui.openFolder.clicked.connect(self.openFolder)
@@ -83,7 +84,8 @@ class MainWindow(QMainWindow):
         for i in minecraft_launcher_lib.utils.get_available_versions(self.minecraft_directory):
             # Only add release versions
             if i["type"] == "release":
-                self.ui.comboBox_2.addItem(i["id"])
+                if not "fo" in i["id"]:
+                    self.ui.comboBox_2.addItem(i["id"])
                 #self.version_select.addItem(i["id"])
 
         self.show()
@@ -206,7 +208,7 @@ class MainWindow(QMainWindow):
 
             def updateBar(value, maxValue):
                 percent = 100 * int(value) / int(maxValue[0])
-                print(int(percent))
+                #print(int(percent))
                 self.ui.download.setValue(percent)
 
             callback = {
@@ -219,7 +221,24 @@ class MainWindow(QMainWindow):
 
             self.ui.download.show()
             self.ui.play.hide()
-            minecraft_launcher_lib.install.install_minecraft_version(version, directory, callback=callback)
+            print(motor)
+            forge_version = minecraft_launcher_lib.forge.find_forge_version(version)
+            print(forge_version)
+            if motor == "vanilla":
+                minecraft_launcher_lib.install.install_minecraft_version(version, directory, callback=callback)
+            if motor == "Forge":
+                if forge_version == "None":
+                    msgBox = QMessageBox()
+                    msgBox.setIcon(QMessageBox.Warning)
+                    msgBox.setText("Cette version de minecraft n'est pas disponible sous forge")
+                    msgBox.setWindowTitle("Attention")
+                    msgBox.setStandardButtons(QMessageBox.Ok)
+
+                else:
+                    minecraft_launcher_lib.forge.install_forge_version(forge_version, directory, callback=callback)
+                    forgeLauch = forge_version.replace("-", "-forge-")
+                    
+                    print(forgeLauch)
             self.ui.play.show()
             self.ui.download.hide()
 
@@ -259,15 +278,22 @@ class MainWindow(QMainWindow):
                 }
 
                 minecraft_directory = 'C:/Users\evanm\AppData\Roaming\.alpha67\minecraft'
-                command = minecraft_launcher_lib.command.get_minecraft_command(version, minecraft_directory,
-                                                                               options)
-                self.execute_command(command)
+
+                if motor == "vanilla":
+                    command = minecraft_launcher_lib.command.get_minecraft_command(version, minecraft_directory,
+                                                                                   options)
+                    self.execute_command(command)
+                elif motor == "Forge":
+                    print("salut")
+                    command = minecraft_launcher_lib.command.get_minecraft_command(forgeLauch, minecraft_directory,
+                                                                                   options)
+                    self.execute_command(command)
 
 
             ###########
             if login == "microsoft":
                 print("okok")
-                with open('C:/Users/' + user + '\AppData\Roaming\.alpha67/alpha/microcred.json', 'r') as file:
+                with open('C:/Users/' + user + '\AppData\Roaming\.alpha67/alpha/ACI.json', 'r') as file:
                     uInfo = json.load(file)
                     print(uInfo)
                     # uInfo = literal_eval(uInfo)
@@ -278,13 +304,43 @@ class MainWindow(QMainWindow):
                 }
 
                 minecraft_directory = 'C:/Users\evanm\AppData\Roaming\.alpha67\minecraft'
-                command = minecraft_launcher_lib.command.get_minecraft_command(version, minecraft_directory,
-                                                                               options)
-                self.execute_command(command)
+                if motor == "vanilla":
+                    command = minecraft_launcher_lib.command.get_minecraft_command(version, minecraft_directory,
+                                                                                   options)
+                    self.execute_command(command)
+                elif motor == "Forge":
+                    print("salut")
+                    command = minecraft_launcher_lib.command.get_minecraft_command(forgeLauch, minecraft_directory,
+                                                                                   options)
+                    self.execute_command(command)
 
+            if login == "crack":
+                print("okoksss")
+                with open('C:/Users/' + user + '\AppData\Roaming\.alpha67/alpha/cred.json', 'r') as file:
+                    uInfo = json.load(file)
+                    print(uInfo)
+                    uInfo = uInfo['crack']
+                    uInfo = uInfo[0]
+                    username = uInfo['username']
+                    # uInfo = literal_eval(uInfo)
+                options = {
+                    "username": username,
+                    "uuid": uuid.uuid4().hex,
+                    "token": ""
+                }
 
-
-
+                minecraft_directory = 'C:/Users\evanm\AppData\Roaming\.alpha67\minecraft'
+                print(forge_version)
+                print(motor)
+                if motor == "vanilla":
+                    command = minecraft_launcher_lib.command.get_minecraft_command(version, minecraft_directory,
+                                                                                   options)
+                    self.execute_command(command)
+                elif motor == "Forge":
+                    print("salut")
+                    command = minecraft_launcher_lib.command.get_minecraft_command(forgeLauch, minecraft_directory,
+                                                                                   options)
+                    self.execute_command(command)
 
 
     def play(self):

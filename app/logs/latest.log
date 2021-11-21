@@ -1,156 +1,62 @@
-[13:18:47] [Render thread/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[13:18:48] [Render thread/INFO]: Setting user: vultorio
-[13:18:48] [Render thread/INFO]: Backend library: LWJGL version 3.2.2 build 10
-[13:18:51] [Render thread/INFO]: Narrator library for x64 successfully loaded
-[13:18:51] [Render thread/INFO]: Reloading ResourceManager: Default
-[13:19:00] [Render thread/INFO]: OpenAL initialized.
-[13:19:00] [Render thread/INFO]: Sound engine started
-[13:19:01] [Render thread/INFO]: Created: 1024x1024x4 minecraft:textures/atlas/blocks.png-atlas
-[13:19:01] [Render thread/INFO]: Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
-[13:19:01] [Render thread/INFO]: Created: 1024x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[13:19:01] [Render thread/INFO]: Created: 1024x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[13:19:01] [Render thread/INFO]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[13:19:01] [Render thread/INFO]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[13:19:01] [Render thread/INFO]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[13:19:04] [Render thread/INFO]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
-[13:19:04] [Render thread/INFO]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
-[13:19:04] [Render thread/INFO]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[13:30:49] [pool-2-thread-2/ERROR]: Couldn't get pending invite count
-dsl: Could not connect to Realms: Connect timed out
-	at dra.a(SourceFile:439) ~[1.17.1.jar:?]
-	at dra.k(SourceFile:325) ~[1.17.1.jar:?]
-	at dra.j(SourceFile:320) ~[1.17.1.jar:?]
-	at dsp.q(SourceFile:215) ~[1.17.1.jar:?]
-	at dtw.run(SourceFile:32) [1.17.1.jar:?]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) [?:?]
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
-	at java.lang.Thread.run(Thread.java:831) [?:?]
-[13:32:39] [pool-2-thread-1/ERROR]: Couldn't get pending invite count
-dsl: Could not connect to Realms: Connect timed out
-	at dra.a(SourceFile:439) ~[1.17.1.jar:?]
-	at dra.k(SourceFile:325) ~[1.17.1.jar:?]
-	at dra.j(SourceFile:320) ~[1.17.1.jar:?]
-	at dsp.q(SourceFile:215) ~[1.17.1.jar:?]
-	at dtw.run(SourceFile:32) [1.17.1.jar:?]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) [?:?]
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
-	at java.lang.Thread.run(Thread.java:831) [?:?]
-[13:41:59] [pool-2-thread-3/ERROR]: Couldn't get pending invite count
-dsl: Could not connect to Realms: Connect timed out
-	at dra.a(SourceFile:439) ~[1.17.1.jar:?]
-	at dra.k(SourceFile:325) ~[1.17.1.jar:?]
-	at dra.j(SourceFile:320) ~[1.17.1.jar:?]
-	at dsp.q(SourceFile:215) ~[1.17.1.jar:?]
-	at dtw.run(SourceFile:32) [1.17.1.jar:?]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) [?:?]
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
-	at java.lang.Thread.run(Thread.java:831) [?:?]
-[14:05:19] [pool-2-thread-3/ERROR]: Couldn't get pending invite count
-dsl: Could not connect to Realms: Connect timed out
-	at dra.a(SourceFile:439) ~[1.17.1.jar:?]
-	at dra.k(SourceFile:325) ~[1.17.1.jar:?]
-	at dra.j(SourceFile:320) ~[1.17.1.jar:?]
-	at dsp.q(SourceFile:215) ~[1.17.1.jar:?]
-	at dtw.run(SourceFile:32) [1.17.1.jar:?]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) [?:?]
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
-	at java.lang.Thread.run(Thread.java:831) [?:?]
-[14:06:59] [pool-2-thread-3/ERROR]: Couldn't get trial availability
-dsl: Could not connect to Realms: Connect timed out
-	at dra.a(SourceFile:439) ~[1.17.1.jar:?]
-	at dra.n(SourceFile:381) ~[1.17.1.jar:?]
-	at dsp.r(SourceFile:224) ~[1.17.1.jar:?]
-	at dtw.run(SourceFile:32) [1.17.1.jar:?]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) [?:?]
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
-	at java.lang.Thread.run(Thread.java:831) [?:?]
-[14:08:08] [pool-2-thread-1/ERROR]: Couldn't get pending invite count
-dsl: Could not connect to Realms: Connection reset
-	at dra.a(SourceFile:439) ~[1.17.1.jar:?]
-	at dra.k(SourceFile:325) ~[1.17.1.jar:?]
-	at dra.j(SourceFile:320) ~[1.17.1.jar:?]
-	at dsp.q(SourceFile:215) ~[1.17.1.jar:?]
-	at dtw.run(SourceFile:32) [1.17.1.jar:?]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) [?:?]
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
-	at java.lang.Thread.run(Thread.java:831) [?:?]
-[14:10:00] [pool-2-thread-2/ERROR]: Couldn't get trial availability
-dsl: Could not connect to Realms: Connect timed out
-	at dra.a(SourceFile:439) ~[1.17.1.jar:?]
-	at dra.n(SourceFile:381) ~[1.17.1.jar:?]
-	at dsp.r(SourceFile:224) ~[1.17.1.jar:?]
-	at dtw.run(SourceFile:32) [1.17.1.jar:?]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) [?:?]
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
-	at java.lang.Thread.run(Thread.java:831) [?:?]
-[14:10:19] [pool-2-thread-1/ERROR]: Could not parse RealmsError: com.google.gson.stream.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 2 column 2 path $
-[14:10:19] [pool-2-thread-1/ERROR]: The error was: <html>
-<head><title>502 Bad Gateway</title></head>
-<body>
-<center><h1>502 Bad Gateway</h1></center>
-<hr><center>Microsoft-Azure-Application-Gateway/v2</center>
-</body>
-</html>
-
-[14:10:19] [pool-2-thread-1/ERROR]: Realms http code: 502 -  error code: -1 -  message: Failed to parse response from server - raw body: <html>
-<head><title>502 Bad Gateway</title></head>
-<body>
-<center><h1>502 Bad Gateway</h1></center>
-<hr><center>Microsoft-Azure-Application-Gateway/v2</center>
-</body>
-</html>
-
-[14:10:19] [pool-2-thread-1/ERROR]: Couldn't get pending invite count
-dsl: <html>
-<head><title>502 Bad Gateway</title></head>
-<body>
-<center><h1>502 Bad Gateway</h1></center>
-<hr><center>Microsoft-Azure-Application-Gateway/v2</center>
-</body>
-</html>
-
-	at dra.a(SourceFile:433) ~[1.17.1.jar:?]
-	at dra.k(SourceFile:325) ~[1.17.1.jar:?]
-	at dra.j(SourceFile:320) ~[1.17.1.jar:?]
-	at dsp.q(SourceFile:215) ~[1.17.1.jar:?]
-	at dtw.run(SourceFile:32) [1.17.1.jar:?]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) [?:?]
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
-	at java.lang.Thread.run(Thread.java:831) [?:?]
-[14:12:39] [pool-2-thread-1/ERROR]: Couldn't get pending invite count
-dsl: Could not connect to Realms: Connect timed out
-	at dra.a(SourceFile:439) ~[1.17.1.jar:?]
-	at dra.k(SourceFile:325) ~[1.17.1.jar:?]
-	at dra.j(SourceFile:320) ~[1.17.1.jar:?]
-	at dsp.q(SourceFile:215) ~[1.17.1.jar:?]
-	at dtw.run(SourceFile:32) [1.17.1.jar:?]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
-	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) [?:?]
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) [?:?]
-	at java.lang.Thread.run(Thread.java:831) [?:?]
+[21Nov2021 21:15:58.535] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--username, gogoeo, --version, 1.16.5-forge-36.2.16, --gameDir, C:/Users\evanm\AppData\Roaming\.alpha67\minecraft, --assetsDir, C:/Users\evanm\AppData\Roaming\.alpha67\minecraft\assets, --assetIndex, 1.16, --uuid, 738c391bf78f4669a3b17204c4586aba, --accessToken, ????????, --userType, mojang, --versionType, release, --launchTarget, fmlclient, --fml.forgeVersion, 36.2.16, --fml.mcVersion, 1.16.5, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20210115.111550]
+[21Nov2021 21:15:58.543] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 8.0.9+86+master.3cf110c starting: java version 16.0.2 by BellSoft
+[21Nov2021 21:15:59.027] [main/INFO] [net.minecraftforge.fml.loading.FixSSL/CORE]: Added Lets Encrypt root certificates as additional trust
+[21Nov2021 21:15:59.129] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.4 Source=file:/C:/Users/evanm/AppData/Roaming/.alpha67/minecraft/libraries/org/spongepowered/mixin/0.8.4/mixin-0.8.4.jar Service=ModLauncher Env=CLIENT
+[21Nov2021 21:15:59.206] [main/WARN] [net.minecraftforge.fml.loading.FMLConfig/CORE]: Configuration file C:\Users\evanm\AppData\Roaming\.alpha67\minecraft\config\fml.toml is not correct. Correcting
+[21Nov2021 21:15:59.218] [main/WARN] [net.minecraftforge.fml.loading.FMLConfig/CORE]: Incorrect key [defaultConfigPath] was corrected from null to defaultconfigs
+[21Nov2021 21:16:02.350] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'fmlclient' with arguments [--version, 1.16.5-forge-36.2.16, --gameDir, C:\Users\evanm\AppData\Roaming\.alpha67\minecraft, --assetsDir, C:\Users\evanm\AppData\Roaming\.alpha67\minecraft\assets, --uuid, 738c391bf78f4669a3b17204c4586aba, --username, gogoeo, --assetIndex, 1.16, --accessToken, ????????, --userType, mojang, --versionType, release]
+[21Nov2021 21:16:13.243] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[21Nov2021 21:16:14.368] [Render thread/ERROR] [net.minecraft.client.Minecraft/]: Failed to verify authentication
+com.mojang.authlib.exceptions.AuthenticationUnavailableException: null
+	at com.mojang.authlib.yggdrasil.YggdrasilSocialInteractionsService.checkPrivileges(YggdrasilSocialInteractionsService.java:97) ~[authlib-2.1.28.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilSocialInteractionsService.<init>(YggdrasilSocialInteractionsService.java:40) ~[authlib-2.1.28.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService.createSocialInteractionsService(YggdrasilAuthenticationService.java:152) ~[authlib-2.1.28.jar:?]
+	at net.minecraft.client.Minecraft.func_244735_a(Minecraft.java:551) ~[?:?]
+	at net.minecraft.client.Minecraft.<init>(Minecraft.java:383) ~[?:?]
+	at net.minecraft.client.main.Main.main(Main.java:149) ~[1.16.5-forge-36.2.16.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:567) ~[?:?]
+	at net.minecraftforge.fml.loading.FMLClientLaunchProvider.lambda$launchService$0(FMLClientLaunchProvider.java:51) ~[forge-1.16.5-36.2.16.jar:36.2]
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:37) [modlauncher-8.0.9.jar:?]
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:54) [modlauncher-8.0.9.jar:?]
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:72) [modlauncher-8.0.9.jar:?]
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:82) [modlauncher-8.0.9.jar:?]
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:66) [modlauncher-8.0.9.jar:?]
+[21Nov2021 21:16:14.371] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: gogoeo
+[21Nov2021 21:16:14.550] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.2.2 build 10
+[21Nov2021 21:16:16.386] [modloading-worker-1/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 36.2.16, for MC 1.16.5 with MCP 20210115.111550
+[21Nov2021 21:16:16.389] [modloading-worker-1/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v36.2.16 Initialized
+[21Nov2021 21:16:19.593] [Render thread/INFO] [com.mojang.text2speech.NarratorWindows/]: Narrator library for x64 successfully loaded
+[21Nov2021 21:16:19.747] [Render thread/INFO] [net.minecraft.resources.SimpleReloadableResourceManager/]: Reloading ResourceManager: Default, Mod Resources
+[21Nov2021 21:16:19.789] [modloading-worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Configuration file C:\Users\evanm\AppData\Roaming\.alpha67\minecraft\config\forge-client.toml is not correct. Correcting
+[21Nov2021 21:16:19.791] [modloading-worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client was corrected from null to its default, SimpleCommentedConfig:{}. 
+[21Nov2021 21:16:19.792] [modloading-worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client.zoomInMissingModelTextInGui was corrected from null to its default, false. 
+[21Nov2021 21:16:19.793] [modloading-worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client.forgeCloudsEnabled was corrected from null to its default, true. 
+[21Nov2021 21:16:19.793] [modloading-worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client.disableStairSlabCulling was corrected from null to its default, false. 
+[21Nov2021 21:16:19.794] [modloading-worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client.alwaysSetupTerrainOffThread was corrected from null to its default, false. 
+[21Nov2021 21:16:19.795] [modloading-worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client.forgeLightPipelineEnabled was corrected from null to its default, true. 
+[21Nov2021 21:16:19.795] [modloading-worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client.experimentalForgeLightPipelineEnabled was corrected from null to its default, false. 
+[21Nov2021 21:16:19.796] [modloading-worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client.selectiveResourceReloadEnabled was corrected from null to its default, true. 
+[21Nov2021 21:16:19.796] [modloading-worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client.showLoadWarnings was corrected from null to its default, true. 
+[21Nov2021 21:16:19.797] [modloading-worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client.useCombinedDepthStencilAttachment was corrected from null to its default, false. 
+[21Nov2021 21:16:19.804] [modloading-worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Configuration file C:\Users\evanm\AppData\Roaming\.alpha67\minecraft\config\forge-common.toml is not correct. Correcting
+[21Nov2021 21:16:19.805] [modloading-worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general was corrected from null to its default, SimpleCommentedConfig:{}. 
+[21Nov2021 21:16:19.805] [modloading-worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.defaultWorldType was corrected from null to its default, default. 
+[21Nov2021 21:16:20.227] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
+[21Nov2021 21:16:21.005] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: AHEAD Current: 36.2.16 Target: null
+[21Nov2021 21:16:32.293] [Render thread/INFO] [net.minecraft.client.audio.SoundSystem/]: OpenAL initialized.
+[21Nov2021 21:16:32.306] [Render thread/INFO] [net.minecraft.client.audio.SoundEngine/SOUNDS]: Sound engine started
+[21Nov2021 21:16:33.046] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[21Nov2021 21:16:33.079] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
+[21Nov2021 21:16:33.080] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[21Nov2021 21:16:33.082] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[21Nov2021 21:16:33.085] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[21Nov2021 21:16:33.086] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[21Nov2021 21:16:33.087] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[21Nov2021 21:16:34.958] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[21Nov2021 21:16:34.964] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[21Nov2021 21:16:34.965] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[21Nov2021 21:16:35.686] [Realms Notification Availability checker #1/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Realms error code: 400 message: 
+[21Nov2021 21:16:47.909] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!

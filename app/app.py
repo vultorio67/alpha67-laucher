@@ -23,6 +23,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
 import os
+import subprocess
 
 from qt_material import apply_stylesheet
 
@@ -90,6 +91,22 @@ class MainWindow(QMainWindow):
     def openFolder(self):
         print("open alpha folder")
         os.system('cmd /c "start C:/Users\%username%\AppData\Roaming\.alpha67\minecraft"')
+
+    def execute_command(self, command):
+        # QProcess.start takes as first argument the program and as second the list of arguments
+        # So we need the filter the program from the command
+        arguments = command[1:]
+        # Deactivate the launch button
+        #self.launch_button.setEnabled(False)
+        # Clear the text  field
+        #self.setPlainText("")
+        self.process = QProcess(self)
+        # Activate the launch button when Minecraft is closed
+        #self.process.finished.connect(lambda: self.play.setEnabled(True))
+        # Connect the function to display the output
+        #self.process.readyRead.connect(self.dataReady)
+        # Start Minecraft
+        self.process.start("java", arguments)
 
 
     def hello(self):
@@ -167,6 +184,8 @@ class MainWindow(QMainWindow):
         self.Form.close()
         os.startfile("microsoftLogin.exe")
 
+
+    #start the minecraft
     def minecraft(self):
         motor = self.ui.comboBox_3.currentText()
         version = self.ui.comboBox_2.currentText()
@@ -196,7 +215,7 @@ class MainWindow(QMainWindow):
                 "setMax": lambda value: maximum(max_value, value)
             }
 
-            directory = minecraft_launcher_lib.utils.get_minecraft_directory()
+            directory = 'C:/Users\evanm\AppData\Roaming\.alpha67\minecraft/'
 
             self.ui.download.show()
             self.ui.play.hide()
@@ -207,6 +226,8 @@ class MainWindow(QMainWindow):
             login = self.getSelectVersion()
             print(login)
 
+
+            ###########
             if login == "mojang":
                 print("okok")
                 with open('C:/Users/' + user + '\AppData\Roaming\.alpha67/alpha/cred.json', 'r') as file:
@@ -220,9 +241,50 @@ class MainWindow(QMainWindow):
                     password = uInfo['password']
 
                 passwordEnc = str(user + "67")
+                password = password.replace("'", '')
+                password = password[1:]
                 print(password)
+                username = username.replace("'", '')
+                username = username[1:]
+                print(username)
                 pa = encrypte.password_decrypt(password, passwordEnc).decode()
-                print(pa)
+                us = encrypte.password_decrypt(username, passwordEnc).decode()
+
+                login_data = minecraft_launcher_lib.account.login_user(us, pa)
+                print(login_data)
+                options = {
+                    "username": login_data["selectedProfile"]["name"],
+                    "uuid": login_data["selectedProfile"]["id"],
+                    "token": login_data["accessToken"]
+                }
+
+                minecraft_directory = 'C:/Users\evanm\AppData\Roaming\.alpha67\minecraft'
+                command = minecraft_launcher_lib.command.get_minecraft_command(version, minecraft_directory,
+                                                                               options)
+                self.execute_command(command)
+
+
+            ###########
+            if login == "microsoft":
+                print("okok")
+                with open('C:/Users/' + user + '\AppData\Roaming\.alpha67/alpha/microcred.json', 'r') as file:
+                    uInfo = json.load(file)
+                    print(uInfo)
+                    # uInfo = literal_eval(uInfo)
+                options = {
+                    "username": uInfo["name"],
+                    "uuid": uInfo["id"],
+                    "token": uInfo["access_token"]
+                }
+
+                minecraft_directory = 'C:/Users\evanm\AppData\Roaming\.alpha67\minecraft'
+                command = minecraft_launcher_lib.command.get_minecraft_command(version, minecraft_directory,
+                                                                               options)
+                self.execute_command(command)
+
+
+
+
 
 
     def play(self):

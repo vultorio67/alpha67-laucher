@@ -32,6 +32,10 @@ def __init__():
         password = str(password)
 
         login_data = minecraft_launcher_lib.account.login_user(userName, password)
+        print(login_data)
+        loginUsername= login_data["selectedProfile"]["name"]
+        uuid= login_data["selectedProfile"]["id"]
+        token= login_data["accessToken"]
 
         userName = userName.replace("'", "")
         password = password.replace("'", "")
@@ -68,7 +72,7 @@ def __init__():
             x = {
 
                 "mojang": [
-                    {"username": str(userName), "password": str(password)}
+                    {"username": str(userName), "password": str(password), "loginUsername": loginUsername, "uuid": uuid,"token": token}
                 ],
                 "crack": [
                     {"username": crack()}

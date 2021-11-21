@@ -37,9 +37,9 @@ import AppComponement.play  as play
 #import AppComponement.checkBox as checkBox
 
 os.environ['QT_API'] = 'pyqt5'
-CLIENT_ID = "f2107422-b90b-46cf-9d04-3dd3da989b44"
-SECRET = "I1G7Q~5IgcJGmIvT-jCzseZTZ2u6d8rJOf0cw"
-REDIRECT_URL = "https://github.com/vultorio67/alpha67-downloader"
+CLIENT_ID = ""
+SECRET = ""
+REDIRECT_URL = ""
 
 
 class MainWindow(QMainWindow):

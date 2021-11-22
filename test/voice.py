@@ -21,7 +21,7 @@ def main():
             "token": login_data["accessToken"]
         }
         directory = 'C:/Users\evanm\AppData\Roaming\.alpha67\minecraft/'
-        minecraft_command = minecraft_launcher_lib.command.get_minecraft_command("1.17.1-forge-37.0.112", directory, options)
+        minecraft_command = minecraft_launcher_lib.command.get_minecraft_command("1.12.2-forge-14.23.5.2855", directory, options)
 
         subprocess.call(minecraft_command)
 

@@ -84,6 +84,7 @@ class MainWindow(QMainWindow):
         for i in minecraft_launcher_lib.utils.get_available_versions(self.minecraft_directory):
             # Only add release versions
             if i["type"] == "release":
+                print(i["id"])
                 if not "fo" in i["id"]:
                     self.ui.comboBox_2.addItem(i["id"])
                 #self.version_select.addItem(i["id"])
@@ -191,6 +192,7 @@ class MainWindow(QMainWindow):
     def minecraft(self):
         motor = self.ui.comboBox_3.currentText()
         version = self.ui.comboBox_2.currentText()
+        print(version)
 
         def maximum(max_value, value):
             max_value[0] = value
@@ -224,6 +226,8 @@ class MainWindow(QMainWindow):
             print(motor)
             forge_version = minecraft_launcher_lib.forge.find_forge_version(version)
             print(forge_version)
+            forgeLauch = forge_version.replace("-", "-forge-")
+            print(forgeLauch)
             if motor == "vanilla":
                 minecraft_launcher_lib.install.install_minecraft_version(version, directory, callback=callback)
             if motor == "Forge":
@@ -235,9 +239,24 @@ class MainWindow(QMainWindow):
                     msgBox.setStandardButtons(QMessageBox.Ok)
 
                 else:
+                    for i in minecraft_launcher_lib.utils.get_available_versions(self.minecraft_directory):
+                        que = i["id"]
+                        if i["type"] == "release":
+                            if forgeLauch == i["id"]:
+                                ab = True
+                                print(forgeLauch)
+                                print("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz")
+                                print(ab)
+                            else:
+                                if "fo" in i["id"]:
+
+                                #ab = False
+                                    print("&&&&&&&&&")
+                                    print(forgeLauch)
+                                    print("compare to ")
+                                    print(i["id"])
                     minecraft_launcher_lib.forge.install_forge_version(forge_version, directory, callback=callback)
-                    forgeLauch = forge_version.replace("-", "-forge-")
-                    
+                    print(que)
                     print(forgeLauch)
             self.ui.play.show()
             self.ui.download.hide()
@@ -285,9 +304,8 @@ class MainWindow(QMainWindow):
                     self.execute_command(command)
                 elif motor == "Forge":
                     print("salut")
-                    command = minecraft_launcher_lib.command.get_minecraft_command(forgeLauch, minecraft_directory,
-                                                                                   options)
-                    self.execute_command(command)
+                    minecraft_command = minecraft_launcher_lib.command.get_minecraft_command("1.12.2-forge-14.23.5.2855", directory, options)
+                    subprocess.call(minecraft_command)
 
 
             ###########
@@ -314,6 +332,7 @@ class MainWindow(QMainWindow):
                                                                                    options)
                     self.execute_command(command)
 
+            ##########
             if login == "crack":
                 print("okoksss")
                 with open('C:/Users/' + user + '\AppData\Roaming\.alpha67/alpha/cred.json', 'r') as file:
@@ -337,10 +356,10 @@ class MainWindow(QMainWindow):
                                                                                    options)
                     self.execute_command(command)
                 elif motor == "Forge":
-                    print("salut")
-                    command = minecraft_launcher_lib.command.get_minecraft_command(forgeLauch, minecraft_directory,
-                                                                                   options)
-                    self.execute_command(command)
+                    print("crack, lauching minecraft, version:"+forgeLauch)
+                    minecraft_command = minecraft_launcher_lib.command.get_minecraft_command("1.12.2-forge-14.23.5.2855", directory, options)
+
+                    subprocess.call(minecraft_command)
 
 
     def play(self):

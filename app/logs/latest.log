@@ -1,46 +1,64 @@
-[22Nov2021 20:42:47.282] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--username, gogoeo, --version, 1.16.5-forge-36.2.16, --gameDir, C:/Users\evanm\AppData\Roaming\.alpha67\minecraft, --assetsDir, C:/Users\evanm\AppData\Roaming\.alpha67\minecraft\assets, --assetIndex, 1.16, --uuid, 7bfc1fe31c7940e1a9448d1210de3915, --accessToken, ????????, --userType, mojang, --versionType, release, --launchTarget, fmlclient, --fml.forgeVersion, 36.2.16, --fml.mcVersion, 1.16.5, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20210115.111550]
-[22Nov2021 20:42:47.292] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 8.0.9+86+master.3cf110c starting: java version 16.0.2 by BellSoft
-[22Nov2021 20:42:47.756] [main/INFO] [net.minecraftforge.fml.loading.FixSSL/CORE]: Added Lets Encrypt root certificates as additional trust
-[22Nov2021 20:42:47.863] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.4 Source=file:/C:/Users/evanm/AppData/Roaming/.alpha67/minecraft/libraries/org/spongepowered/mixin/0.8.4/mixin-0.8.4.jar Service=ModLauncher Env=CLIENT
-[22Nov2021 20:42:50.748] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'fmlclient' with arguments [--version, 1.16.5-forge-36.2.16, --gameDir, C:\Users\evanm\AppData\Roaming\.alpha67\minecraft, --assetsDir, C:\Users\evanm\AppData\Roaming\.alpha67\minecraft\assets, --uuid, 7bfc1fe31c7940e1a9448d1210de3915, --username, gogoeo, --assetIndex, 1.16, --accessToken, ????????, --userType, mojang, --versionType, release]
-[22Nov2021 20:43:00.180] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[22Nov2021 20:43:00.986] [Render thread/ERROR] [net.minecraft.client.Minecraft/]: Failed to verify authentication
+[28Nov2021 11:42:36.887] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--username, vuvu, --version, 1.16.5-forge-36.0.0, --gameDir, C:/Users/evanm\AppData\Roaming\.alpha67/alpha/, --assetsDir, C:/Users/evanm\AppData\Roaming\.alpha67/alpha/assets, --assetIndex, 1.16, --uuid, 41d14c59d83748c7b779c5050746d4e7, --accessToken, ????????, --userType, mojang, --versionType, release, --launchTarget, fmlclient, --fml.forgeVersion, 36.0.0, --fml.mcVersion, 1.16.5, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20210115.111550]
+[28Nov2021 11:42:36.908] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 8.0.9+86+master.3cf110c starting: java version 1.8.0_51 by Oracle Corporation
+[28Nov2021 11:42:36.926] [main/WARN] [cpw.mods.modlauncher.SecureJarHandler/]: LEGACY JDK DETECTED, SECURED JAR HANDLING DISABLED
+[28Nov2021 11:42:37.797] [main/INFO] [net.minecraftforge.fml.loading.FixSSL/CORE]: Added Lets Encrypt root certificates as additional trust
+[28Nov2021 11:42:37.866] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.2 Source=file:/C:/Users/evanm/AppData/Roaming/.alpha67/alpha/libraries/org/spongepowered/mixin/0.8.2/mixin-0.8.2.jar Service=ModLauncher Env=CLIENT
+[28Nov2021 11:42:37.937] [main/WARN] [net.minecraftforge.fml.loading.FMLConfig/CORE]: Configuration file C:\Users\evanm\AppData\Roaming\.alpha67\alpha\config\fml.toml is not correct. Correcting
+[28Nov2021 11:42:37.947] [main/WARN] [net.minecraftforge.fml.loading.FMLConfig/CORE]: Incorrect key [defaultConfigPath] was corrected from null to defaultconfigs
+[28Nov2021 11:42:40.943] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'fmlclient' with arguments [--version, 1.16.5-forge-36.0.0, --gameDir, C:\Users\evanm\AppData\Roaming\.alpha67\alpha, --assetsDir, C:\Users\evanm\AppData\Roaming\.alpha67\alpha\assets, --uuid, 41d14c59d83748c7b779c5050746d4e7, --username, vuvu, --assetIndex, 1.16, --accessToken, ????????, --userType, mojang, --versionType, release]
+[28Nov2021 11:42:52.702] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[28Nov2021 11:42:54.110] [Render thread/ERROR] [net.minecraft.client.Minecraft/]: Failed to verify authentication
 com.mojang.authlib.exceptions.AuthenticationUnavailableException: null
 	at com.mojang.authlib.yggdrasil.YggdrasilSocialInteractionsService.checkPrivileges(YggdrasilSocialInteractionsService.java:97) ~[authlib-2.1.28.jar:?]
 	at com.mojang.authlib.yggdrasil.YggdrasilSocialInteractionsService.<init>(YggdrasilSocialInteractionsService.java:40) ~[authlib-2.1.28.jar:?]
 	at com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService.createSocialInteractionsService(YggdrasilAuthenticationService.java:152) ~[authlib-2.1.28.jar:?]
-	at net.minecraft.client.Minecraft.func_244735_a(Minecraft.java:551) ~[?:?]
-	at net.minecraft.client.Minecraft.<init>(Minecraft.java:383) ~[?:?]
-	at net.minecraft.client.main.Main.main(Main.java:149) ~[1.16.5-forge-36.2.16.jar:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[?:?]
-	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
-	at java.lang.reflect.Method.invoke(Method.java:567) ~[?:?]
-	at net.minecraftforge.fml.loading.FMLClientLaunchProvider.lambda$launchService$0(FMLClientLaunchProvider.java:51) ~[forge-1.16.5-36.2.16.jar:36.2]
+	at net.minecraft.client.Minecraft.func_244735_a(Minecraft.java:551) [?:?]
+	at net.minecraft.client.Minecraft.<init>(Minecraft.java:383) [?:?]
+	at net.minecraft.client.main.Main.main(Main.java:149) [?:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_51]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_51]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_51]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[?:1.8.0_51]
+	at net.minecraftforge.fml.loading.FMLClientLaunchProvider.lambda$launchService$0(FMLClientLaunchProvider.java:51) [forge-1.16.5-36.0.0.jar:36.0]
+	at net.minecraftforge.fml.loading.FMLClientLaunchProvider$$Lambda$424/1425405511.call(Unknown Source) [forge-1.16.5-36.0.0.jar:36.0]
 	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:37) [modlauncher-8.0.9.jar:?]
 	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:54) [modlauncher-8.0.9.jar:?]
 	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:72) [modlauncher-8.0.9.jar:?]
 	at cpw.mods.modlauncher.Launcher.run(Launcher.java:82) [modlauncher-8.0.9.jar:?]
 	at cpw.mods.modlauncher.Launcher.main(Launcher.java:66) [modlauncher-8.0.9.jar:?]
-[22Nov2021 20:43:00.990] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: gogoeo
-[22Nov2021 20:43:01.129] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.2.2 build 10
-[22Nov2021 20:43:02.300] [modloading-worker-2/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 36.2.16, for MC 1.16.5 with MCP 20210115.111550
-[22Nov2021 20:43:02.303] [modloading-worker-2/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v36.2.16 Initialized
-[22Nov2021 20:43:04.746] [Render thread/INFO] [com.mojang.text2speech.NarratorWindows/]: Narrator library for x64 successfully loaded
-[22Nov2021 20:43:04.934] [Render thread/INFO] [net.minecraft.resources.SimpleReloadableResourceManager/]: Reloading ResourceManager: Default, Mod Resources
-[22Nov2021 20:43:05.275] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
-[22Nov2021 20:43:06.010] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: AHEAD Current: 36.2.16 Target: null
-[22Nov2021 20:43:15.171] [Render thread/INFO] [net.minecraft.client.audio.SoundSystem/]: OpenAL initialized.
-[22Nov2021 20:43:15.173] [Render thread/INFO] [net.minecraft.client.audio.SoundEngine/SOUNDS]: Sound engine started
-[22Nov2021 20:43:16.071] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
-[22Nov2021 20:43:16.101] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
-[22Nov2021 20:43:16.103] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[22Nov2021 20:43:16.105] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[22Nov2021 20:43:16.108] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[22Nov2021 20:43:16.109] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[22Nov2021 20:43:16.111] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[22Nov2021 20:43:17.567] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
-[22Nov2021 20:43:17.570] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
-[22Nov2021 20:43:17.571] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[22Nov2021 20:43:18.196] [Realms Notification Availability checker #1/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Realms error code: 400 message: 
-[22Nov2021 20:44:51.772] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
+[28Nov2021 11:42:54.115] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: vuvu
+[28Nov2021 11:42:54.332] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.2.2 build 10
+[28Nov2021 11:42:58.425] [modloading-worker-1/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 36.0.0, for MC 1.16.5 with MCP 20210115.111550
+[28Nov2021 11:42:58.467] [modloading-worker-1/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v36.0.0 Initialized
+[28Nov2021 11:43:01.231] [Render thread/INFO] [com.mojang.text2speech.NarratorWindows/]: Narrator library for x64 successfully loaded
+[28Nov2021 11:43:01.425] [Render thread/INFO] [net.minecraft.resources.SimpleReloadableResourceManager/]: Reloading ResourceManager: Default, Mod Resources
+[28Nov2021 11:43:01.555] [modloading-worker-4/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Configuration file C:\Users\evanm\AppData\Roaming\.alpha67\alpha\config\forge-client.toml is not correct. Correcting
+[28Nov2021 11:43:01.665] [modloading-worker-4/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client was corrected from null to SimpleCommentedConfig:{}
+[28Nov2021 11:43:01.671] [modloading-worker-4/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client.zoomInMissingModelTextInGui was corrected from null to false
+[28Nov2021 11:43:01.697] [modloading-worker-4/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client.forgeCloudsEnabled was corrected from null to true
+[28Nov2021 11:43:01.740] [modloading-worker-4/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client.disableStairSlabCulling was corrected from null to false
+[28Nov2021 11:43:01.892] [modloading-worker-4/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client.alwaysSetupTerrainOffThread was corrected from null to false
+[28Nov2021 11:43:01.921] [modloading-worker-4/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client.forgeLightPipelineEnabled was corrected from null to true
+[28Nov2021 11:43:01.995] [modloading-worker-4/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client.experimentalForgeLightPipelineEnabled was corrected from null to false
+[28Nov2021 11:43:02.026] [modloading-worker-4/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client.selectiveResourceReloadEnabled was corrected from null to true
+[28Nov2021 11:43:02.117] [modloading-worker-4/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client.showLoadWarnings was corrected from null to true
+[28Nov2021 11:43:02.161] [modloading-worker-4/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key client.useCombinedDepthStencilAttachment was corrected from null to false
+[28Nov2021 11:43:02.217] [modloading-worker-4/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Configuration file C:\Users\evanm\AppData\Roaming\.alpha67\alpha\config\forge-common.toml is not correct. Correcting
+[28Nov2021 11:43:02.282] [modloading-worker-4/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general was corrected from null to SimpleCommentedConfig:{}
+[28Nov2021 11:43:02.298] [modloading-worker-4/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.defaultWorldType was corrected from null to default
+[28Nov2021 11:43:06.407] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[28Nov2021 11:43:08.963] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: OUTDATED Current: 36.0.0 Target: 36.2.0
+[28Nov2021 11:43:12.426] [Render thread/INFO] [net.minecraft.client.audio.SoundSystem/]: OpenAL initialized.
+[28Nov2021 11:43:12.428] [Render thread/INFO] [net.minecraft.client.audio.SoundEngine/SOUNDS]: Sound engine started
+[28Nov2021 11:43:16.145] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[28Nov2021 11:43:16.413] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
+[28Nov2021 11:43:16.414] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[28Nov2021 11:43:16.418] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[28Nov2021 11:43:16.436] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[28Nov2021 11:43:16.437] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[28Nov2021 11:43:16.439] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[28Nov2021 11:43:17.871] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[28Nov2021 11:43:17.877] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[28Nov2021 11:43:17.878] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[28Nov2021 11:43:18.878] [Realms Notification Availability checker #1/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Realms error code: 400 message: 
+[28Nov2021 11:49:51.488] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!

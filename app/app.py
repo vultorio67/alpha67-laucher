@@ -80,13 +80,15 @@ class MainWindow(QMainWindow):
         self.ui.label.setPixmap(QtGui.QPixmap("../img/Alpha67 Laucher.png"))
         self.hello()
         self.mediaPlayer.setVideoOutput(videoWidget)
+        minecraft_directory = minecraft_launcher_lib.utils.get_minecraft_directory()
+        versions = minecraft_launcher_lib.utils.get_version_list()
 
-
-        for i in minecraft_launcher_lib.utils.get_available_versions(self.minecraft_directory):
+        for i in versions:
             # Only add release versions
             if i["type"] == "release":
                 if not "fo" in i["id"]:
                     self.ui.comboBox_2.addItem(i["id"])
+
                 #self.version_select.addItem(i["id"])
 
         self.show()
